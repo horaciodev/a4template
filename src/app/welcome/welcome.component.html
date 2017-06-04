@@ -1,0 +1,12 @@
+<div class="container">
+  <div class="starter-template">
+      <h1>{{title}}</h1>
+      <p class="lead">CLI generated angular 4 app with bootstrap and
+        Font Awesome.</p>
+  </div>
+  <div *ngIf="_user">
+    <pre>{{_user | json}}</pre>
+    <button (click)="startSignoutMainWindow()" type="button" id="btnLogout" class="btn btn-secondary">Logout</button>
+    <button (click)="callAPI()" type="button" id="btnCallAPI" class="btn btn-primary">Call API</button>
+  </div>
+</div>
