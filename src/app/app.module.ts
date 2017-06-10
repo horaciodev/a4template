@@ -16,6 +16,7 @@ import { FooterComponent } from './footer/footer.component';
 import { UnauthorizedComponent } from './unauthorized/unauthorized.component';
 
 import { AuthHttpService } from './shared/services/auth-http.service';
+import { TodoService } from './shared/services/todo.service';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { AuthHttpService } from './shared/services/auth-http.service';
   ],
   providers: [
     AuthHttpService,
+    TodoService,
     authProviders
   ],
   bootstrap: [AppComponent]
