@@ -17,6 +17,9 @@ export class WelcomeComponent implements OnInit {
   loadedUserSub: any;
   todoList: ITodoVM[];
   errorMessage: string;
+  private _secureAPIEndpoint: string = "http://localhost:5001/api/v1/identity";
+  private userClaims = [];
+
 
   constructor(private authSvc: AuthService,
               private todoSvc: TodoService) {  }
@@ -57,16 +60,22 @@ export class WelcomeComponent implements OnInit {
 
   callOpenAPI(){
     console.log('calling open API endpoint');
-    this.todoSvc.getTodoList().subscribe(todoList => this.todoList,
+    this.todoList = [];
+    this.todoSvc.getTodoList()
+    .subscribe(todoList => {
+      this.todoList = todoList; },
     error => this.errorMessage = <any>error);
   }
 
   callSecuredAPI(){
-    if(this._user){
-      console.log('Call API from here, use a different service');
-    }
-    else{
-      console.log('You must login to call the API');
-    }
+    console.log('calling secure API endpoint');
+    this.userClaims = [];
+    this.authSvc.AuthGet(this._secureAPIEndpoint)
+    .flatMap((response) => response.json())
+    .subscribe(data => {
+      this.userClaims.push(data);
+    },
+    error => this.errorMessage = <any>error);
+
   };
 }

@@ -189,6 +189,9 @@ export class AuthService {
   }
 
   public _setRequestOptions(options?: RequestOptions) {
+    if(this.currentUser){
+      this._setAuthHeaders(this.currentUser);
+    }
 
     if (options) {
       options.headers.append(this.authHeaders.keys[0], this.authHeaders.values[0]);

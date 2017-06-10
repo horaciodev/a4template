@@ -9,6 +9,18 @@
     <button (click)="startSignoutMainWindow()" type="button" id="btnLogout" class="btn btn-secondary">Logout</button>
   </div>
   <div>
+    <b>User Claims:</b>
+    <ul>
+      <li *ngFor="let claim of userClaims">{{claim | json}}</li>
+    </ul>
+  </div>
+  <div>
+      <b>Todo List:</b>
+      <ul>
+        <li *ngFor="let todo of todoList">{{todo.name}} - {{todo.isComplete}}</li>
+      </ul>
+  </div>
+  <div>
     <button (click)="callSecuredAPI()" type="button" id="btnCallSecuredAPI" class="btn btn-primary">Call Secured API</button>
     <button (click)="callOpenAPI()" type="button" id="btnCallOpenAPI" class="btn btn-primary">Call Open API</button>
   </div>

@@ -17,7 +17,7 @@ const appRoutes: Routes = [
     },
     {
         path: '',
-        redirectTo: '/welcome',
+        redirectTo: 'welcome',
         pathMatch: 'full'
     },
     {
