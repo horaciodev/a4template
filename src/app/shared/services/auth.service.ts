@@ -15,8 +15,10 @@ const settings: any = {
 
   silent_redirect_uri: 'http://localhost:5003/silent-renew.html',
   automaticSilentRenew: true,
+  accessTokenExpiringNotificationTime: 30,
 
   filterProtocolClaims: true,
+  revokeAccessTokenOnSignout: true,
   loadUserInfo: true
 };
 

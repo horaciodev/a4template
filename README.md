@@ -1,5 +1,9 @@
 # A4first
 
+If you're interacting with Identity Server 4, which is the intent of this app
+I would recommend to run it in port 5003, like so
+ng serve --port 5003
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0.
 
 ## Development server
